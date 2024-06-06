@@ -32,7 +32,7 @@ class TaskController extends Controller
    */
   public function show(Task $task)
   {
-    //
+    return response()->json(new TaskCollection($task), 200);
   }
 
   /**
