@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;
+use App\Http\Resources\TaskCollection;
 use App\Models\Task;
 use Illuminate\Http\JsonResponse;
 
@@ -14,7 +15,8 @@ class TaskController extends Controller
    */
   public function index(): JsonResponse
   {
-    return response()->json(Task::all());
+    $tasks = Task::all();
+    return response()->json(new TaskCollection($tasks), 200);
   }
 
   /**
