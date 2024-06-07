@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,6 +20,7 @@ class TaskFactory extends Factory
     return [
       'title' => $this->faker->words(3, true),
       'completed' => $this->faker->boolean(),
+      'user_id' => User::all()->random()->id
     ];
   }
 }
