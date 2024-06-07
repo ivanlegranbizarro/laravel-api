@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateTaskRequest;
 use App\Http\Resources\TaskCollection;
 use App\Models\Task;
 use Illuminate\Http\JsonResponse;
+use Spatie\QueryBuilder\QueryBuilder;
 
 class TaskController extends Controller
 {
@@ -15,7 +16,8 @@ class TaskController extends Controller
    */
   public function index(): JsonResponse
   {
-    $tasks = Task::paginate(10);
+    $tasks = QueryBuilder::for(Task::class)->allowedFilters('completed')->paginate(10);
+
     return response()->json(new TaskCollection($tasks), 200);
   }
 
