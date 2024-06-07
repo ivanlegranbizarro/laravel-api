@@ -23,7 +23,7 @@ class StoreTaskRequest extends FormRequest
   {
     return [
       'title' => 'required|string|min:3|max:255|unique:tasks',
-      'is_completed' => 'boolean',
+      'completed' => 'boolean',
     ];
   }
 }

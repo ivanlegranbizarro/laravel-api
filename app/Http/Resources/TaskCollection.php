@@ -16,8 +16,9 @@ class TaskCollection extends ResourceCollection
   {
     return $this->collection->map(function ($task) {
       return [
+        'id' => $task->id,
         'title' => $task->title,
-        'is_completed' => (bool)$task->is_completed,
+        'completed' => (bool) $task->completed,
       ];
     })->toArray();
   }

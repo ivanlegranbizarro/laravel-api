@@ -23,7 +23,7 @@ class UpdateTaskRequest extends FormRequest
   {
     return [
       'title' => 'string|min:3|max:255|unique:tasks',
-      'is_completed' => 'boolean',
+      'completed' => 'boolean',
     ];
   }
 }

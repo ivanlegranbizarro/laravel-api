@@ -15,14 +15,14 @@ class TaskController extends Controller
    */
   public function index(): JsonResponse
   {
-    $tasks = Task::all();
+    $tasks = Task::paginate(10);
     return response()->json(new TaskCollection($tasks), 200);
   }
 
   /**
    * Store a newly created resource in storage.
    */
-  public function store(StoreTaskRequest $request)
+  public function store(StoreTaskRequest $request): JsonResponse
   {
     $data = $request->validated();
     Task::create($data);
@@ -32,7 +32,7 @@ class TaskController extends Controller
   /**
    * Display the specified resource.
    */
-  public function show(Task $task)
+  public function show(Task $task): JsonResponse
   {
     return response()->json(new TaskCollection($task), 200);
   }
@@ -40,7 +40,7 @@ class TaskController extends Controller
   /**
    * Update the specified resource in storage.
    */
-  public function update(UpdateTaskRequest $request, Task $task)
+  public function update(UpdateTaskRequest $request, Task $task): JsonResponse
   {
     $data = $request->validated();
     $task->update($data);
@@ -50,7 +50,7 @@ class TaskController extends Controller
   /**
    * Remove the specified resource from storage.
    */
-  public function destroy(Task $task)
+  public function destroy(Task $task): JsonResponse
   {
     $task->delete();
     return response()->json(['message' => 'Task deleted'], 200);
