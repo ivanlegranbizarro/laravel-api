@@ -16,7 +16,10 @@ class TaskController extends Controller
    */
   public function index(): JsonResponse
   {
-    $tasks = QueryBuilder::for(Task::class)->allowedFilters('completed')->paginate(10);
+    $tasks = QueryBuilder::for(Task::class)
+      ->defaultSort('-created_at')
+      ->allowedSorts('created_at', 'title', 'completed')
+      ->allowedFilters('completed')->paginate(10);
 
     return response()->json(new TaskCollection($tasks), 200);
   }

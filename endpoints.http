@@ -1,0 +1,40 @@
+GET http://127.0.0.1:8000/api/tasks
+Content-Type: application/json
+Accept: application/json
+###
+GET http://127.0.0.1:8000/api/tasks?filter[completed]=true
+Content-Type: application/json
+Accept: application/json
+###
+GET http://127.0.0.1:8000/api/tasks?sort=title
+Content-Type: application/json
+Accept: application/json
+###
+GET http://127.0.0.1:8000/api/tasks?page=2
+Content-Type: application/json
+Accept: application/json
+###
+POST http://127.0.0.1:8000/api/tasks
+Content-Type: application/json
+Accept: application/json
+
+{
+  "title": "comprar leche"
+}
+###
+GET http://127.0.0.1:8000/api/tasks/1
+Content-Type: application/json
+Accept: application/json
+###
+PUT http://127.0.0.1:8000/api/tasks/2
+Content-Type: application/json
+Accept: application/json
+
+{
+  "title": "Saludar a Amanda en el hipermercado"
+}
+###
+DELETE http://127.0.0.1:8000/api/tasks/1
+Content-Type: application/json
+Accept: application/json
+###
