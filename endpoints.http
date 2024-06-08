@@ -38,3 +38,23 @@ DELETE http://127.0.0.1:8000/api/tasks/1
 Content-Type: application/json
 Accept: application/json
 ###
+
+POST http://127.0.0.1:8000/api/register
+Content-Type: application/json
+Accept: application/json
+
+{
+  "name": "Ernesto",
+  "email": "ernesto@ernesto.com",
+  "password": "password"
+}
+###
+POST http://127.0.0.1:8000/api/login
+Content-Type: application/json
+Accept: application/json
+
+{
+  "email": "ernesto@ernesto.com",
+  "password": "password"
+}
+###

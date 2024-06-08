@@ -14,7 +14,7 @@ class UserController extends Controller
     $data = $request->validated();
     $data['password'] = bcrypt($data['password']);
     $user = User::create($data);
-    $token = $user->createToken('auth_token')->plainTextToken;
+    $token = $user->createToken('auth_token')->accessToken;
 
     return response()->json(['message' => 'User created', 'token' => $token], 201);
   }
@@ -27,7 +27,7 @@ class UserController extends Controller
     }
 
     $user = auth()->user();
-    $token = $user->createToken('auth_token')->plainTextToken;
+    $token = $user->createToken('auth_token')->accessToken;
 
     return response()->json(['token' => $token], 200);
   }
