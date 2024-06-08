@@ -1,6 +1,7 @@
 GET http://127.0.0.1:8000/api/tasks
 Content-Type: application/json
 Accept: application/json
+Authorization: Bearer <token>
 ###
 GET http://127.0.0.1:8000/api/tasks?filter[completed]=true
 Content-Type: application/json
