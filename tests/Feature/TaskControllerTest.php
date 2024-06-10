@@ -48,7 +48,8 @@ class TaskControllerTest extends TestCase
 
     // Realizar las acciones necesarias
     $respuesta = $this->postJson('/api/tasks', [
-      'title' => 'Comprar comida para Concha'
+      'title' => 'Comprar comida para Concha',
+      'completed' => false
     ]);
 
     // Comprobar el estado final
