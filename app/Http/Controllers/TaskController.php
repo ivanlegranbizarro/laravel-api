@@ -30,6 +30,8 @@ class TaskController extends Controller
   public function store(StoreTaskRequest $request): JsonResponse
   {
     $data = $request->validated();
+    $user = auth()->user();
+    $data['user_id'] = $user->id;
     Task::create($data);
     return response()->json(['message' => 'Task created'], 201);
   }
